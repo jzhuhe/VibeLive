@@ -126,9 +126,9 @@ export class Player {
             -Math.cos(this.yaw)
         );
         const right = new THREE.Vector3(
-            -Math.cos(this.yaw),
+            Math.cos(this.yaw),
             0,
-            Math.sin(this.yaw)
+            -Math.sin(this.yaw)
         );
 
         if (this.keys.forward) moveDirection.add(forward);
