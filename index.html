@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VibeLive - Quake Live Clone</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden;
+            font-family: 'Courier New', monospace;
+            background: #000;
+        }
+
+        #canvas {
+            display: block;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        #hud {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            color: #0f0;
+            text-shadow: 0 0 10px #0f0;
+        }
+
+        #speed {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #health {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        #ammo {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 32px;
+            font-weight: bold;
+        }
+
+        #crosshair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 20px;
+            height: 20px;
+        }
+
+        #crosshair::before,
+        #crosshair::after {
+            content: '';
+            position: absolute;
+            background: #0f0;
+        }
+
+        #crosshair::before {
+            left: 50%;
+            top: 0;
+            width: 2px;
+            height: 100%;
+            transform: translateX(-50%);
+        }
+
+        #crosshair::after {
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            transform: translateY(-50%);
+        }
+
+        #instructions {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            font-size: 18px;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border: 2px solid #0f0;
+        }
+
+        #instructions.hidden {
+            display: none;
+        }
+
+        #instructions h1 {
+            margin-bottom: 20px;
+        }
+
+        #instructions p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+
+    <div id="hud">
+        <div id="speed">Speed: 0</div>
+        <div id="health">Health: 100</div>
+        <div id="ammo">Ammo: 25</div>
+        <div id="crosshair"></div>
+    </div>
+
+    <div id="instructions">
+        <h1>VibeLive - Quake Live Clone</h1>
+        <p><strong>Click to start</strong></p>
+        <br>
+        <p>WASD - Move</p>
+        <p>SPACE - Jump</p>
+        <p>Mouse - Look</p>
+        <p>Left Click - Fire Rocket</p>
+        <br>
+        <p><strong>Strafe Jump:</strong> Jump while strafing (A/D) and turning</p>
+        <p><strong>Rocket Jump:</strong> Jump, look down, and fire rocket</p>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
