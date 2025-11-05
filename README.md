@@ -17,14 +17,17 @@ A web-based Quake Live clone featuring authentic strafe jumping and rocket jumpi
 - **Rocket Jumping**
   - Self-propulsion using rocket explosions
   - Directional control based on aim
-  - Self-damage system
+  - No self-damage - rocket jump freely!
   - Explosion force scales with distance
 
-- **Parkour-Style Level**
-  - Multiple platforms at varying heights
-  - Jump course for practicing movement
-  - High platforms requiring rocket jumps
-  - Open arena for speed runs
+- **Massive Parkour Arena**
+  - 300x300 unit arena with extensive platforming
+  - Multiple tower structures for vertical challenges
+  - Numerous walls and surfaces for rocket jumping
+  - Progressive difficulty strafe jumping courses
+  - High platforms requiring advanced rocket jumps
+  - Long speedrun platforms for maintaining velocity
+  - Central high platform at 30 units (ultimate challenge)
 
 ## Controls
 
@@ -33,7 +36,7 @@ A web-based Quake Live clone featuring authentic strafe jumping and rocket jumpi
 - **S** - Move backward
 - **A** - Strafe left
 - **D** - Strafe right
-- **Space** - Jump
+- **Space** or **Right Click** - Jump
 - **Mouse** - Look around
 - **Left Click** - Fire rocket
 
@@ -53,14 +56,14 @@ A web-based Quake Live clone featuring authentic strafe jumping and rocket jumpi
 
 #### Rocket Jumping
 1. Look straight down or at an angle
-2. Jump (**Space**)
+2. Jump (**Space** or **Right Click**)
 3. Fire a rocket (**Left Click**) right after jumping
 4. The explosion will propel you upward and forward
 
 **Tips:**
 - Timing is crucial - fire right after jumping
 - Angle your view to control direction
-- Costs health - use strategically
+- No self-damage - rocket jump freely!
 - Combine with strafe jumping for maximum distance
 
 ## Installation

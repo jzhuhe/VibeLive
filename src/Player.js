@@ -91,6 +91,25 @@ export class Player {
                 this.pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, this.pitch));
             }
         });
+
+        document.addEventListener('mousedown', (e) => {
+            if (document.pointerLockElement && e.button === 2) {
+                this.keys.jump = true;
+            }
+        });
+
+        document.addEventListener('mouseup', (e) => {
+            if (e.button === 2) {
+                this.keys.jump = false;
+            }
+        });
+
+        // Prevent context menu on right click
+        document.addEventListener('contextmenu', (e) => {
+            if (document.pointerLockElement) {
+                e.preventDefault();
+            }
+        });
     }
 
     update(delta, world) {
@@ -102,14 +121,14 @@ export class Player {
         // Get movement input
         const moveDirection = new THREE.Vector3();
         const forward = new THREE.Vector3(
-            Math.sin(this.yaw),
+            -Math.sin(this.yaw),
             0,
-            Math.cos(this.yaw)
+            -Math.cos(this.yaw)
         );
         const right = new THREE.Vector3(
-            Math.cos(this.yaw),
+            -Math.cos(this.yaw),
             0,
-            -Math.sin(this.yaw)
+            Math.sin(this.yaw)
         );
 
         if (this.keys.forward) moveDirection.add(forward);

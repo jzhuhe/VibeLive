@@ -115,16 +115,12 @@ export class Rocket {
         // Create explosion visual effect
         this.createExplosion();
 
-        // Apply damage and force to player
+        // Apply knockback force to player (no damage)
         const distanceToPlayer = this.position.distanceTo(this.player.position);
 
         if (distanceToPlayer <= this.explosionRadius) {
-            // Calculate damage falloff
-            const damageScale = 1 - (distanceToPlayer / this.explosionRadius);
-            const damage = this.explosionDamage * damageScale * 0.5; // Reduced self-damage
-
-            // Apply damage
-            this.player.takeDamage(damage);
+            // Calculate force falloff
+            const forceScale = 1 - (distanceToPlayer / this.explosionRadius);
 
             // Calculate explosion force direction (away from explosion)
             const forceDirection = this.player.position.clone()
@@ -137,7 +133,7 @@ export class Rocket {
 
             // Apply force (stronger when closer)
             const force = forceDirection.multiplyScalar(
-                this.explosionForce * damageScale
+                this.explosionForce * forceScale
             );
 
             this.player.applyExplosionForce(force);
